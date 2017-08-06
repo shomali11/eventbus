@@ -2,14 +2,6 @@
 
 An event bus
 
-## Features
-
-* Thread safe
-* Two Concurrent Map types:
-    * Simple Concurrent Map
-    * Sharded Concurrent Map
-        * Provides improved performance by reducing the number of write locks
-
 ## Usage
 
 Using `govendor` [github.com/kardianos/govendor](https://github.com/kardianos/govendor):
