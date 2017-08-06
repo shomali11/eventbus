@@ -15,6 +15,18 @@
 			"revisionTime": "2016-01-10T10:55:54Z"
 		},
 		{
+			"checksumSHA1": "6xqwlKK8IgvAkY/edQkBUZA1yKY=",
+			"path": "github.com/shomali11/cmap",
+			"revision": "97b9798551cb0c4fe0a7bbe55ecf5dc78be5ec45",
+			"revisionTime": "2017-08-06T03:04:44Z"
+		},
+		{
+			"checksumSHA1": "q5luNe1RfyiWXcSXhwUwMGQxzns=",
+			"path": "github.com/shomali11/util/hashes",
+			"revision": "a3878addafcd0ecad0123deb35c23691b1fc1a2f",
+			"revisionTime": "2017-08-05T22:13:36Z"
+		},
+		{
 			"checksumSHA1": "J+ppEq6nYMKxhB9+c+MD1x9UwSc=",
 			"path": "github.com/stretchr/testify/assert",
 			"revision": "05e8a0eda380579888eb53c394909df027f06991",
