@@ -30,40 +30,62 @@ func NewShardedConcurrentMap(options ...ShardedConcurrentMapOption) *ShardedConc
 		option(shardedConcurrentMap)
 	}
 
-	internalMap := make([]*ConcurrentMap, shardedConcurrentMap.numberOfShards)
+	concurrentMaps := make([]*ConcurrentMap, shardedConcurrentMap.numberOfShards)
 	for i := uint32(0); i < shardedConcurrentMap.numberOfShards; i++ {
-		internalMap[i] = NewConcurrentMap()
+		concurrentMaps[i] = NewConcurrentMap()
 	}
 
-	shardedConcurrentMap.internalMap = internalMap
+	shardedConcurrentMap.concurrentMaps = concurrentMaps
 	return shardedConcurrentMap
 }
 
 // ShardedConcurrentMap concurrent map
 type ShardedConcurrentMap struct {
 	numberOfShards uint32
-	internalMap    []*ConcurrentMap
+	concurrentMaps []*ConcurrentMap
 }
 
 // Set concurrent set to map
 func (c *ShardedConcurrentMap) Set(key string, value interface{}) {
 	shard := c.getShard(key)
-	concurrentMap := c.internalMap[shard]
+	concurrentMap := c.concurrentMaps[shard]
 	concurrentMap.Set(key, value)
 }
 
 // Get concurrent get from map
 func (c *ShardedConcurrentMap) Get(key string) (interface{}, bool) {
 	shard := c.getShard(key)
-	concurrentMap := c.internalMap[shard]
+	concurrentMap := c.concurrentMaps[shard]
 	return concurrentMap.Get(key)
 }
 
 // Remove concurrent remove from map
 func (c *ShardedConcurrentMap) Remove(key string) {
 	shard := c.getShard(key)
-	concurrentMap := c.internalMap[shard]
+	concurrentMap := c.concurrentMaps[shard]
 	concurrentMap.Remove(key)
+}
+
+// Contains concurrent contains in map
+func (c *ShardedConcurrentMap) Contains(key string) bool {
+	_, ok := c.Get(key)
+	return ok
+}
+
+// Size concurrent size of map
+func (c *ShardedConcurrentMap) Size() int {
+	sum := 0
+	for _, concurrentMap := range c.concurrentMaps {
+		sum += concurrentMap.Size()
+	}
+	return sum
+}
+
+// Remove concurrent remove from map
+func (c *ShardedConcurrentMap) Clear() {
+	for _, concurrentMap := range c.concurrentMaps {
+		concurrentMap.Clear()
+	}
 }
 
 func (c *ShardedConcurrentMap) getShard(key string) uint32 {
