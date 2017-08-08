@@ -54,18 +54,3 @@ func TestEventbus_Multi(t *testing.T) {
 
 	time.Sleep(time.Second)
 }
-
-func TestEventbus_Plenty(t *testing.T) {
-	client := NewClient()
-	defer client.Close()
-
-	for i := 0; i < 100; i++ {
-		go func() {
-			client.Subscribe("name", func(value interface{}) {
-				assert.Equal(t, value, "Raed Shomali")
-			})
-		}()
-	}
-
-	time.Sleep(time.Second)
-}
