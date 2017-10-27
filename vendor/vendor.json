@@ -15,16 +15,22 @@
 			"revisionTime": "2016-01-10T10:55:54Z"
 		},
 		{
-			"checksumSHA1": "kihOQYAnHa+d6OJIRZ8m7uzsH20=",
+			"checksumSHA1": "LKtp47n9lECQjdNJM8zhX7+w8UY=",
 			"path": "github.com/shomali11/maps",
-			"revision": "73498e4169f9e7da528d50081ff67dd2ee6c19f7",
-			"revisionTime": "2017-08-08T02:53:02Z"
+			"revision": "09a57b25d94bfa9310d6cfb14f0ac5f9f437f8ad",
+			"revisionTime": "2017-10-27T00:15:09Z"
 		},
 		{
 			"checksumSHA1": "q5luNe1RfyiWXcSXhwUwMGQxzns=",
 			"path": "github.com/shomali11/util/hashes",
 			"revision": "a3878addafcd0ecad0123deb35c23691b1fc1a2f",
 			"revisionTime": "2017-08-05T22:13:36Z"
+		},
+		{
+			"checksumSHA1": "K0dvq8+JyysF2mBqcrdus5gasvs=",
+			"path": "github.com/shomali11/util/xhashes",
+			"revision": "6aced18c6f939cc45505e79e5618c0e9c42fb509",
+			"revisionTime": "2017-10-26T23:08:12Z"
 		},
 		{
 			"checksumSHA1": "J+ppEq6nYMKxhB9+c+MD1x9UwSc=",
